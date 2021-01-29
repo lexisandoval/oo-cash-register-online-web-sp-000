@@ -1,5 +1,4 @@
 class CashRegister
-
   attr_accessor :total, :discount, :items
 
   def initialize(discount = 0)
@@ -10,12 +9,13 @@ class CashRegister
   end
 
   def add_item(title, price, quantity = 1)
-    @total += price * quantity # add up price for selected quantity of items
-    @last_price = price # don't forget last price
-    while quantity > 0 # while there is at least 1 item, add it to the array and loop until there aren't any items left to add
+    @total += price * quantity
+    @last_price = price
+    while quantity > 0
       @items << title
       quantity -= 1
     end
+
   end
 
   def apply_discount
@@ -27,8 +27,14 @@ class CashRegister
     end
   end
 
+  def items
+    @items
+  end
+
   def void_last_transaction
     @total -= @last_price
+
   end
+
 
 end
