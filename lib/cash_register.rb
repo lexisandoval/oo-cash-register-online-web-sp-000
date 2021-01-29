@@ -13,6 +13,10 @@ class CashRegister
 
     @total += price * quantity
     @last_price = price
+    while quantity > 0
+      @items << title
+      quantity -= 1
+    end
 
   end
 
