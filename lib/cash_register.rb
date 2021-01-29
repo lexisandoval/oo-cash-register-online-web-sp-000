@@ -10,19 +10,20 @@ class CashRegister
   end
 
   def add_item(title, price, quantity = 1)
-    @total += price * quantity
-    @last_price = price
-    while quantity > 0
+    @total += price * quantity # add up price for selected quantity of items
+    @last_price = price # don't forget last price
+    while quantity > 0 # while there is at least 1 item, add it to the array and loop until there aren't any items left to add
       @items << title
       quantity -= 1
     end
   end
 
   def apply_discount
-    discount_percent = 100 - @discount
-    new_price = 100/discount_percent
-    new_total = total * new_price
-    puts "After the discount, the total comes to $#{new_total}"
+    if @discount > 0
+
+    else
+      puts "There is no discount to apply."
+    end
   end
 
 end
