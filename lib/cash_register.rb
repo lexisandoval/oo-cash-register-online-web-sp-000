@@ -11,7 +11,7 @@ class CashRegister
 
   def add_item(title, price, quantity = 1)
     @total += price * quantity # add up price for selected quantity of items
-    @last_price = price # don't forget last price
+    @last_price = price * quantity # don't forget last price
     while quantity > 0 # while there is at least 1 item, add it to the array and loop until there aren't any items left to add
       @items << title
       quantity -= 1
